@@ -20,8 +20,8 @@ spec:
     kotlin: "// spec:"
   test_file_patterns:
     kotlin:
-      - "app/src/test/**/*.kt"
-      - "app/src/androidTest/**/*.kt"
+      - "src/test/**/*.kt"
+      - "src/androidTest/**/*.kt"
 
 ci:
   adapter: android
