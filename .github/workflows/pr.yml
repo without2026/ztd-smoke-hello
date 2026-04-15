@@ -14,6 +14,8 @@ permissions:
   pull-requests: write
   security-events: write
   actions: read
+  # id-token: write required by claude-code-action (OIDC) inside auto-fix/review.
+  id-token: write
 
 jobs:
   tests:
