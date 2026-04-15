@@ -34,7 +34,7 @@ jobs:
 
   auto-fix:
     needs: [tests, gates, review]
-    if: failure() && !startsWith(github.head_ref, 'claude-fix-')
+    if: ${{ failure() }}
     uses: without2026/zero-to-deploy-platform/.github/workflows/ci-auto-fix.yml@v0.1.0-alpha.3
     with:
       platform_ref: v0.1.0-alpha.3
