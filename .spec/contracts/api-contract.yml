@@ -1,0 +1,17 @@
+version: 1
+base_path: /
+auth: none
+endpoints:
+  - method: GET
+    path: /healthz
+    auth: none
+    response:
+      status: 200
+      body:
+        ok: boolean
+    spec_refs:
+      - HELLO-001
+# Note: This app performs no network I/O. The /healthz endpoint is a placeholder
+# API-shaped surface required by the pipeline contract schema (api_contract must
+# have >=1 endpoint). It is NOT implemented by the Android client and exists
+# only to keep future remote-config/telemetry wiring traceable to a contract.

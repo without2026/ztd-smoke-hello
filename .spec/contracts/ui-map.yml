@@ -1,0 +1,13 @@
+version: 1
+routes:
+  - path: /
+    screen: MainActivity
+    data: []
+    components:
+      - HelloTextView
+    auth: none
+shared_components:
+  - name: HelloTextView
+    props:
+      text: String
+    description: Android TextView with id hello_text bound to string resource hello_message.
