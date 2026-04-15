@@ -31,3 +31,12 @@ jobs:
     needs: [tests, gates]
     uses: without2026/zero-to-deploy-platform/.github/workflows/ci-review.yml@v0.1.0-alpha.3
     secrets: inherit
+
+  auto-fix:
+    needs: [tests, gates, review]
+    if: failure() && !startsWith(github.head_ref, 'claude-fix-')
+    uses: without2026/zero-to-deploy-platform/.github/workflows/ci-auto-fix.yml@v0.1.0-alpha.3
+    with:
+      platform_ref: v0.1.0-alpha.3
+      branch: ${{ github.head_ref }}
+    secrets: inherit
