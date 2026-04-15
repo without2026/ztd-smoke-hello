@@ -1,0 +1,5 @@
+version: 1
+tables: []
+relationships: []
+migration_notes:
+  - "client_primary smoke test: no persistence. App is a single-screen TextView with no local or server storage. No Room database, no SharedPreferences, no DataStore. Any future persistence would be introduced via a Room schema under app/src/main/java/com/without/hellosmoke/data/."

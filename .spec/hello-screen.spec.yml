@@ -1,0 +1,19 @@
+module: hello-screen
+description: Single-screen Android app rendering the word "Hello".
+behaviors:
+  - id: HELLO-001
+    type: ui_interaction
+    description: MainActivity displays a TextView with the text "Hello" on first launch.
+    precondition: App is installed on an Android device/emulator (minSdk 26+) and user launches the app from the home screen; no prior state.
+    expected: MainActivity inflates its content view and a TextView with id hello_text has text equal to the string resource hello_message (value "Hello").
+    source: phase2-acceptance
+  - id: HELLO-002
+    type: lifecycle
+    description: MainActivity.onCreate sets the content view without throwing.
+    precondition: A fresh MainActivity instance is created via Robolectric (or ActivityScenario) with a null savedInstanceState Bundle.
+    expected: onCreate completes normally, findViewById(R.id.hello_text) returns a non-null TextView, and no exception is thrown.
+    source: phase2-acceptance
+invariants:
+  - id: HELLO-INV-001
+    description: The string resource hello_message is always exactly "Hello" (no localization variants, no whitespace).
+    enforced_by: app/src/test/java/com/without/hellosmoke/MainActivityTest.kt
