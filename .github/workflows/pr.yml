@@ -9,9 +9,11 @@ on:
     types: [opened, synchronize, reopened]
 
 permissions:
-  contents: read
+  # contents: write needed for auto-fix to commit+push fixes back to the PR branch.
+  contents: write
   pull-requests: write
   security-events: write
+  actions: read
 
 jobs:
   tests:
