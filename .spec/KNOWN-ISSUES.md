@@ -1,0 +1,1 @@
+- ztd-smoke-hello #phase2 — contract schema enforces api_contract.endpoints minItems>=1 even for client_primary; needs relaxation. Tracking in PR 3c-2.
